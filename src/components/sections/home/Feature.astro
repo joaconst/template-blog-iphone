@@ -1,5 +1,12 @@
 ---
 import {CalendarDays, Speech} from '@lucide/astro'
+import articlesData from '../../../data/articles.json';
+
+const featuredArticle = articlesData.articles.find(article => article.featured);
+
+if (!featuredArticle) {
+  return null;
+}
 ---
 
 <section class="bg-[#F4F2F0] flex flex-col pb-24">
@@ -16,8 +23,8 @@ import {CalendarDays, Speech} from '@lucide/astro'
             <!-- Imagen -->
             <div class="w-full md:w-2/5">
                 <img
-                    src="/feature.webp"
-                    alt="Imagen destacada"
+                    src={featuredArticle.image}
+                    alt={featuredArticle.title}
                     class="w-full h-48 md:h-auto object-cover"
                 />
             </div>
@@ -31,27 +38,26 @@ import {CalendarDays, Speech} from '@lucide/astro'
                 <span
                     class="text-sm uppercase text-gray-500 font-semibold tracking-wider"
                 >
-                    Reviews
+                    {featuredArticle.category}
                 </span>
 
                 <!-- Título -->
                 <h3 class="text-3xl font-semibold text-gray-900">
-                    Todo lo que debes saber sobre el iPhone 15 Pro Max
+                    {featuredArticle.title}
                 </h3>
 
                 <!-- Descripción -->
                 <p class="text-lg text-gray-700">
-                    Características, rendimiento y mejoras clave del iPhone más
-                    potente hasta ahora.
+                    {featuredArticle.description}
                 </p>
 
                 <!-- Fecha y autor -->
                 <div class="text-sm text-gray-500 flex flex-col sm:flex-row gap-4 md:gap-8">
                     <span class="flex items-center gap-2">
-                      <CalendarDays /> 22 de abril de 2025
+                      <CalendarDays /> {featuredArticle.date}
                     </span>
                     <span class="flex items-center gap-2">
-                      <Speech /> Carla Altamirano
+                      <Speech /> {featuredArticle.author}
                     </span>
                   </div>
                   
@@ -60,7 +66,7 @@ import {CalendarDays, Speech} from '@lucide/astro'
                 <!-- Botón -->
                 <div class="flex justify-center mt-4">
                     <a
-                        href="#"
+                        href={`/article/${featuredArticle.id}`}
                         class="inline-block bg-black text-white py-2 px-6 w-[50%] rounded-lg text-center hover:bg-gray-800 transition"
                     >
                         Leer artículo

@@ -1,5 +1,16 @@
 ---
 import {MessageCircleMore, Wrench, LayoutGrid, UserPlus, Newspaper} from '@lucide/astro'
+import articlesData from '../../../data/articles.json';
+
+type IconType = typeof MessageCircleMore | typeof Wrench | typeof LayoutGrid | typeof UserPlus | typeof Newspaper;
+
+const iconMap: Record<string, IconType> = {
+  MessageCircleMore,
+  Wrench,
+  LayoutGrid,
+  UserPlus,
+  Newspaper
+};
 ---
 
 <section class="mt-8">
@@ -10,84 +21,25 @@ import {MessageCircleMore, Wrench, LayoutGrid, UserPlus, Newspaper} from '@lucid
   <article
     class="md:bg-black text-white p-8 flex flex-col space-y-4 md:flex-row md:space-y-0 md:divide-x-2 md:divide-gray-700"
   >
-    <section
-      class="bg-black w-full md:w-1/5 h-40 flex items-center md:flex-col md:justify-center md-2 p-4 md:p-0 shadow-lg shadow-black md:shadow-none"
-    >
-      <!-- Ícono centrado solo en desktop (oculto en mobile) -->
-      <span class="hidden md:block"><MessageCircleMore size={50} /></span>
+    {articlesData.categories.map((category) => {
+      const Icon = iconMap[category.icon];
+      return (
+        <section
+          class="bg-black w-full md:w-1/5 h-40 flex items-center md:flex-col md:justify-center md-2 p-4 md:p-0 shadow-lg shadow-black md:shadow-none"
+        >
+          <!-- Ícono centrado solo en desktop (oculto en mobile) -->
+          <span class="hidden md:block"><Icon size={50} /></span>
 
-      <!-- Ícono a la izquierda solo en mobile -->
-      <span class="md:hidden ml-8"><MessageCircleMore size={40} /></span>
+          <!-- Ícono a la izquierda solo en mobile -->
+          <span class="md:hidden ml-8"><Icon size={40} /></span>
 
-      <!-- Texto siempre centrado -->
-      <div class="flex flex-col items-center mx-auto md:mx-0">
-        <span class="text-xl mt-4">iPhone</span>
-        <span class="text-lg">10 artículos</span>
-      </div>
-    </section>
-
-    <section
-      class="bg-black w-full md:w-1/5 h-40 flex items-center md:flex-col md:justify-center gap-2 p-4 md:p-0 shadow-lg shadow-black md:shadow-none"
-    >
-      <!-- Ícono centrado solo en desktop (oculto en mobile) -->
-      <span class="hidden md:block"><Wrench size={50} /></span>
-
-      <!-- Ícono a la izquierda solo en mobile -->
-      <span class="md:hidden ml-8"><Wrench size={40} /></span>
-
-      <!-- Texto siempre centrado -->
-      <div class="flex flex-col items-center mx-auto md:mx-0">
-        <span class="text-xl mt-4">Trucos</span>
-        <span class="text-lg">15 artículos</span>
-      </div>
-    </section>
-
-    <section
-      class="bg-black w-full md:w-1/5 h-40 flex items-center md:flex-col md:justify-center  gap-2 p-4 md:p-0 shadow-lg shadow-black md:shadow-none"
-    >
-      <!-- Ícono centrado solo en desktop (oculto en mobile) -->
-      <span class="hidden md:block"><LayoutGrid size={50} /></span>
-
-      <!-- Ícono a la izquierda solo en mobile -->
-      <span class="md:hidden ml-8"><LayoutGrid size={40} /></span>
-
-      <!-- Texto siempre centrado -->
-      <div class="flex flex-col items-center mx-auto md:mx-0">
-        <span class="text-xl mt-4">App</span>
-        <span class="text-lg">18 artículos</span>
-      </div>
-    </section>
-
-    <section
-      class="bg-black w-full md:w-1/5 h-40 flex items-center md:flex-col md:justify-center  gap-2 p-4 md:p-0 shadow-lg shadow-black md:shadow-none"
-    >
-      <!-- Ícono centrado solo en desktop (oculto en mobile) -->
-      <span class="hidden md:block"><UserPlus size={50} /></span>
-
-      <!-- Ícono a la izquierda solo en mobile -->
-      <span class="md:hidden ml-8"><UserPlus size={40} /></span>
-
-      <!-- Texto siempre centrado -->
-      <div class="flex flex-col items-center mx-auto md:mx-0">
-        <span class="text-xl mt-4">Accesorios</span>
-        <span class="text-lg">20 artículos</span>
-      </div>
-    </section>
-
-    <section
-      class="bg-black w-full md:w-1/5 h-40 flex items-center md:flex-col md:justify-center  gap-2 p-4 md:p-0 shadow-lg shadow-black md:shadow-none"
-    >
-      <!-- Ícono centrado solo en desktop (oculto en mobile) -->
-      <span class="hidden md:block"><Newspaper size={50}/></span>
-
-      <!-- Ícono a la izquierda solo en mobile -->
-      <span class="md:hidden ml-8"><Newspaper size={40} /></span>
-
-      <!-- Texto siempre centrado -->
-      <div class="flex flex-col items-center mx-auto md:mx-0">
-        <span class="text-xl mt-4">Noticas</span>
-        <span class="text-lg">10 artículos</span>
-      </div>
-    </section>
+          <!-- Texto siempre centrado -->
+          <div class="flex flex-col items-center mx-auto md:mx-0">
+            <span class="text-xl mt-4">{category.name}</span>
+            <span class="text-lg">{category.count} artículos</span>
+          </div>
+        </section>
+      );
+    })}
   </article>
 </section>

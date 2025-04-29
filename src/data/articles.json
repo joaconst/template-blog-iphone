@@ -1,0 +1,61 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Las mejores apps de fotografía para iPhone en 2025",
+      "description": "Llevá tus fotos al siguiente nivel con estas apps esenciales.",
+      "category": "Apps",
+      "author": "Carla Altamirano",
+      "date": "2025-04-22",
+      "image": "/recent-1.webp",
+      "featured": false
+    },
+    {
+      "id": 2,
+      "title": "10 trucos para que la batería de tu iPhone dure mucho más",
+      "description": "Configuraciones y hábitos clave para mejorar la autonomía.",
+      "category": "Trucos",
+      "author": "Carla Altamirano",
+      "date": "2025-04-22",
+      "image": "/recent-2.webp",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "Todo lo que debes saber sobre el iPhone 15 Pro Max",
+      "description": "Características, rendimiento y mejoras clave del iPhone más potente hasta ahora.",
+      "category": "Reviews",
+      "author": "Carla Altamirano",
+      "date": "2025-04-22",
+      "image": "/feature.webp",
+      "featured": true
+    }
+  ],
+  "categories": [
+    {
+      "name": "iPhone",
+      "count": 10,
+      "icon": "MessageCircleMore"
+    },
+    {
+      "name": "Trucos",
+      "count": 15,
+      "icon": "Wrench"
+    },
+    {
+      "name": "App",
+      "count": 18,
+      "icon": "LayoutGrid"
+    },
+    {
+      "name": "Accesorios",
+      "count": 20,
+      "icon": "UserPlus"
+    },
+    {
+      "name": "Noticias",
+      "count": 10,
+      "icon": "Newspaper"
+    }
+  ]
+} 
