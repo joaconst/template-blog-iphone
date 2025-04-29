@@ -1,3 +1,7 @@
+---
+import {CalendarDays, Speech} from '@lucide/astro'
+---
+
 <section class="bg-[#F4F2F0] flex flex-col pb-24">
     <!-- Título arriba -->
     <h2 class="px-4 sm:px-8 pt-8 pb-2 text-2xl font-medium">
@@ -42,10 +46,16 @@
                 </p>
 
                 <!-- Fecha y autor -->
-                <div class="text-sm text-gray-500 flex gap-8">
-                    <span>22 de abril de 2025</span>
-                    <span>Carla Altamirano</span>
-                </div>
+                <div class="text-sm text-gray-500 flex flex-col sm:flex-row gap-4 md:gap-8">
+                    <span class="flex items-center gap-2">
+                      <CalendarDays /> 22 de abril de 2025
+                    </span>
+                    <span class="flex items-center gap-2">
+                      <Speech /> Carla Altamirano
+                    </span>
+                  </div>
+                  
+                  
 
                 <!-- Botón -->
                 <div class="flex justify-center mt-4">

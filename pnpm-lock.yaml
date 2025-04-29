@@ -14,6 +14,9 @@ importers:
       '@fontsource-variable/inter':
         specifier: ^5.0.16
         version: 5.2.5
+      '@lucide/astro':
+        specifier: ^0.503.0
+        version: 0.503.0(astro@5.7.7(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3)(yaml@2.7.1))
       '@tailwindcss/vite':
         specifier: ^4.1.4
         version: 4.1.4(vite@6.2.6(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.1))
@@ -335,6 +338,11 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
+
+  '@lucide/astro@0.503.0':
+    resolution: {integrity: sha512-dmHgsCH8wNcSRmjq4NNK7qYRVdmUhIyRkLZjWyHG9YZRNDs6PYYSjyVk09+tJxswRJ5VItzd8XcAkZDilg4qXA==}
+    peerDependencies:
+      astro: ^4 || ^5
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -1896,6 +1904,10 @@ snapshots:
     optional: true
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
+
+  '@lucide/astro@0.503.0(astro@5.7.7(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3)(yaml@2.7.1))':
+    dependencies:
+      astro: 5.7.7(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3)(yaml@2.7.1)
 
   '@oslojs/encoding@1.1.0': {}
 
